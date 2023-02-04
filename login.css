@@ -1,14 +1,24 @@
 body {
-  background-image: url("fundo-login.jpg");
+  background-image: url("back.jpg");
+}
+
+.title-app {
+  font-family: "Montserrat", sans-serif;
+  color: #0981a7;
+  font-weight: 900;
+  margin: 125px 470px;
+  font-size: 70px;
 }
 
 .div-form-blue {
   width: 510px;
   height: 410px;
   background-color: #3ac5f0;
-  margin: 260px auto 0 910px;
+  margin: 260px auto 0 1050px;
   border-radius: 3px;
   padding: 17px 14px;
+  position: absolute;
+  top: 0;
 }
 
 .div-form-white {
@@ -19,7 +29,7 @@ body {
 }
 
 .form {
-  padding: 1px 60px;
+  padding: 40px 60px;
 }
 
 .buttons {
