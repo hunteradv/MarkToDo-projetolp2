@@ -1,0 +1,31 @@
+body {
+  background-image: url("fundo-login.jpg");
+}
+
+.div-form-blue {
+  width: 510px;
+  height: 410px;
+  background-color: #3ac5f0;
+  margin: 260px auto 0 910px;
+  border-radius: 3px;
+  padding: 17px 14px;
+}
+
+.div-form-white {
+  width: 480px;
+  height: 380px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.form {
+  padding: 1px 60px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
