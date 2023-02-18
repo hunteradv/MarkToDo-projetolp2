@@ -6,24 +6,24 @@ body {
   font-family: "Montserrat", sans-serif;
   color: #0981a7;
   font-weight: 900;
-  margin: 125px 470px;
+  margin: 95px 300px;
   font-size: 70px;
 }
 
 .div-form-blue {
-  width: 510px;
-  height: 410px;
+  max-width: 500px;
+  max-height: 410px;
+  width: 500px;
   background-color: #3ac5f0;
-  margin: 260px auto 0 1050px;
+  margin: auto auto 0 1050px;
   border-radius: 3px;
   padding: 17px 14px;
-  position: absolute;
-  top: 0;
+  position: relative;
 }
 
 .div-form-white {
-  width: 480px;
-  height: 380px;
+  max-width: 480px;
+  max-height: 380px;
   background-color: white;
   border-radius: 3px;
 }
@@ -38,4 +38,15 @@ body {
   justify-content: center;
   align-items: center;
   padding-top: 30px;
+}
+
+
+@media screen and (max-width: 1600px) {
+  .title-app{
+    margin: 65px 280px;
+  }
+
+  .div-form-blue {
+    margin-left: 800px;
+  }
 }
