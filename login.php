@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="login.js"></script>
     <title>Mark 2 do</title>
 </head>
 <?php
@@ -26,15 +27,17 @@ if (isset($_SESSION['userName']))
                     <div class="mb-3">
                         <label for="email" class="form-label">E-mail</label>
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        <span class="validations" id="emailValidated"></span>
                     </div>
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Senha</label>
                         <input type="password" class="form-control" id="password">
+                        <span class="validations" id="passwordValidated"></span>
                     </div>
 
                     <div class="buttons">
-                        <button type="button" class="btn btn-primary btn-lg">Login</button>
+                        <button type="button" class="btn btn-primary btn-lg" onclick="validateLogin()">Login</button>
                         <a href="register.php"><button type="button" class="btn btn-link">Registrar</button></a>
                     </div>
                 </form>

@@ -21,9 +21,8 @@ validateRegister = function() {
     if (!passwordConfirmValidated)
         return;
 
-    if (passwordValidated === true && emailValidated === true){
-        window.location.href = 'doRegister.php'; 
-    }
+    
+    window.location.href = 'doRegister.php';     
 }
 
 validatePassword = function() {
@@ -36,7 +35,10 @@ validatePassword = function() {
         return false;
     }
     else {
-        document.querySelector("#passwordValidated").textContent = "";
+        if (confirmPassword === "" || confirmPassword === undefined){
+            document.querySelector("#passwordValidated").textContent = "";
+            return true;
+        }
 
         if(password !== confirmPassword){
             alert("Senhas são diferentes");            
@@ -56,7 +58,16 @@ validateEmail = function() {
     }
     else {
         document.querySelector("#emailValidated").textContent = "";
-        return true;
+
+        let re = /\S+@\S+\.\S+/;
+        let validated = re.test(email);
+
+        if (!validated){
+            document.querySelector("#emailValidated").textContent = "E-mail precisa ser válido"
+            return validated;
+        }
+        
+        return validated
     }
 }
 
@@ -67,8 +78,8 @@ validatePassowordConfirm = function() {
         document.querySelector("#passwordConfirmValidated").textContent = "Confirmação de senha é obrigatória";
         return false;
     }
-    else {
-        document.querySelector("#passwordConfirmValidated").textContent = "";
-        return true;
-    }    
+    
+    document.querySelector("#passwordConfirmValidated").textContent = "";
+    return true;
+     
 }

@@ -40,6 +40,10 @@ body {
   padding-top: 30px;
 }
 
+.validations {
+  color: red;
+}
+
 
 @media screen and (max-width: 1600px) {
   .title-app{
