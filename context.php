@@ -5,9 +5,9 @@ $host     = "localhost";
 $port     = "3306";
 $user     = "root";
 $password = "";
-$db       = "marktodo";
+$db       = "marktodo2";
 try {   //vamos conectar
-    $conexao = new PDO($dbtype . ":host=" . $host .
+    $context = new PDO($dbtype . ":host=" . $host .
         ";port=" . $port . ";dbname=" . $db, $user, $password);
     // echo "<p>Banco de dados conectado.</p>";
 } catch (PDOException $i) {

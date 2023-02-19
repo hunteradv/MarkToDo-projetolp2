@@ -1,5 +1,7 @@
 validateRegister = function() {
     const name = document.querySelector("#name").value;
+    const email = document.querySelector("#email").value;
+    const password = document.querySelector("#password").value;    
     
     if (name === null || name === ""){
         document.querySelector("#nameValidated").textContent = "Nome é obrigatório";
@@ -9,11 +11,11 @@ validateRegister = function() {
         document.querySelector("#nameValidated").textContent = "";
     }
 
-    const emailValidated = validateEmail();
+    const emailValidated = validateEmail(email);
     if (!emailValidated)
         return;    
 
-    const passwordValidated = validatePassword();
+    const passwordValidated = validatePassword(password);
     if (!passwordValidated)
         return;
 
@@ -22,11 +24,37 @@ validateRegister = function() {
         return;
 
     
-    window.location.href = 'doRegister.php';     
+    $.ajax({
+        method: "POST",
+        url: "doRegister.php",
+        data: { name: name, email: email, password: password },
+        success: function(response) {
+            
+            if (response === "Duplicated e-mail"){
+                alertConfirm("Já existe um usuário com este e-mail");
+            }
+
+            if (response === "Duplicated password"){
+                alertConfirm("Já existe um usuário com esta senha");
+            }
+
+            if (response === "true"){
+                Swal.fire({
+                    title: 'Usuário cadastrado com sucesso!',
+                    confirmButtonColor: '#3ac5f0'
+                }).then(() => {
+                    location.href = "../login/login.php";
+                });
+            }
+            
+            if (response === "false"){
+                alertConfirm("Houve um erro para cadastrar o usuário!");
+            }
+        }
+    });
 }
 
-validatePassword = function() {
-    const password = document.querySelector("#password").value;
+validatePassword = function(password) {
     const confirmPassword = document.querySelector("#passwordConfirm").value;
 
 
@@ -41,7 +69,7 @@ validatePassword = function() {
         }
 
         if(password !== confirmPassword){
-            alert("Senhas são diferentes");            
+            alertConfirm("As senhas são diferentes!");         
         }
         else {
             return true;
@@ -49,9 +77,7 @@ validatePassword = function() {
     }    
 }
 
-validateEmail = function() {
-    const email = document.querySelector("#email").value;
-    
+validateEmail = function(email) {    
     if (email == null || email == ""){
         document.querySelector("#emailValidated").textContent = "E-mail é obrigatório"
         return false;
@@ -82,4 +108,11 @@ validatePassowordConfirm = function() {
     document.querySelector("#passwordConfirmValidated").textContent = "";
     return true;
      
+}
+
+alertConfirm = function(text) {
+    Swal.fire({
+        title: text,
+        confirmButtonColor: '#3ac5f0'
+    })
 }

@@ -38,7 +38,7 @@ if (isset($_SESSION['userName']))
 
                     <div class="buttons">
                         <button type="button" class="btn btn-primary btn-lg" onclick="validateLogin()">Login</button>
-                        <a href="register.php"><button type="button" class="btn btn-link">Registrar</button></a>
+                        <a href="../register/register.php"><button type="button" class="btn btn-link">Registrar</button></a>
                     </div>
                 </form>
             </div>
@@ -49,5 +49,5 @@ if (isset($_SESSION['userName']))
 </html>
 
 <?php
-require_once("footer.php");
+require_once("../footer.php");
 ?>

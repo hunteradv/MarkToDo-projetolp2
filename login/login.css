@@ -1,12 +1,12 @@
 body {
-  background-image: url("back.jpg");
+  background-image: url("../back.jpg");
 }
 
 .title-app {
   font-family: "Montserrat", sans-serif;
   color: #0981a7;
   font-weight: 900;
-  margin: 95px 300px;
+  margin: 125px 470px;
   font-size: 70px;
 }
 
