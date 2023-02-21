@@ -16,7 +16,7 @@ const validateLogin = function () {
         data: { email: email, password: password },
         success: function(response) {
             if (response === "true")
-                window.location.href = 'index.php';             
+                window.location.href = '../index/index.php';             
             else 
             alertConfirm("Usuário não cadastrado na base de dados");
         }

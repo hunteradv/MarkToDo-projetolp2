@@ -1,0 +1,9 @@
+.list-group {
+    width: 1200px;
+}
+
+.environments {
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+}

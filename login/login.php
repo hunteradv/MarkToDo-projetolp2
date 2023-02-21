@@ -14,10 +14,10 @@
     <script type="text/javascript" src="login.js"></script>
     <title>Mark 2 do</title>
 </head>
-<?php
 
-if (isset($_SESSION['userName']))
-    header("Location: index.php");
+<?php
+if (isset($_SESSION['loggedUser']))
+    header("Location: ../index/index.php");
 ?>
 
 <body>
