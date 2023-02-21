@@ -18,15 +18,22 @@
         echo "<p>Você precisa logar para acessar esta página</p>";
     } else {
         require_once("../header.php");
+        require_once("../context.php");
+
+        $sql = "select * from environments";
+        $result = $context->query($sql);
+        $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
     ?>
         <section class="environments">
             <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-action">The current button</button>
-                <button type="button" class="list-group-item list-group-item-action">A second button item</button>
-                <button type="button" class="list-group-item list-group-item-action">A third button item</button>
-                <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-                <button type="button" class="list-group-item list-group-item-action">A disabled button item</button>
+                <?php
+                foreach ($data as $line) {
+                ?>
+                    <button type="button" class="list-group-item list-group-item-action"><?php echo "$line[name]" ?></button>
+                <?php
+                }
+                ?>
             </div>
         </section>
 </body>
