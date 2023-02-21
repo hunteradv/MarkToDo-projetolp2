@@ -28,8 +28,7 @@ validateRegister = function() {
         method: "POST",
         url: "doRegister.php",
         data: { name: name, email: email, password: password },
-        success: function(response) {
-            
+        success: function(response) {            
             if (response === "Duplicated e-mail"){
                 alertConfirm("Já existe um usuário com este e-mail");
             }

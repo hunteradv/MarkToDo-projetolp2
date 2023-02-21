@@ -1,18 +1,30 @@
 const validateLogin = function () {
-    const emailValidated = validateEmail();
+    const email = document.querySelector("#email").value;
+    const password = document.querySelector("#password").value;
+    
+    const emailValidated = validateEmail(email);
     if (!emailValidated)
         return;        
 
-    const passwordValidated = validatePassword();
+    const passwordValidated = validatePassword(password);
     if (!passwordValidated)
         return;
 
-    window.location.href = 'doLogin.php'; 
+    $.ajax({
+        method: "POST",
+        url: "doLogin.php",
+        data: { email: email, password: password },
+        success: function(response) {
+            if (response === "true")
+                window.location.href = 'index.php';             
+            else 
+            alertConfirm("Usuário não cadastrado na base de dados");
+        }
+    });
+
 }
 
- const validateEmail = function () {
-    const email = document.querySelector("#email").value;
-    
+ const validateEmail = function (email) {    
     if (email == null || email == ""){
         document.querySelector("#emailValidated").textContent = "E-mail é obrigatório"
         return false;
@@ -32,9 +44,7 @@ const validateLogin = function () {
     }
 }
 
-const validatePassword = function () {
-    const password = document.querySelector("#password").value;
-
+const validatePassword = function (password) {    
     if (password === null || password === ""){
         document.querySelector("#passwordValidated").textContent = "Senha é obrigatória";
         return false;
@@ -42,4 +52,11 @@ const validatePassword = function () {
 
     document.querySelector("#passwordValidated").textContent = "";
     return true;
+}
+
+const alertConfirm = function(text) {
+    Swal.fire({
+        title: text,
+        confirmButtonColor: '#3ac5f0'
+    })
 }
