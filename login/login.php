@@ -16,7 +16,9 @@
 </head>
 
 <?php
-if (isset($_SESSION['loggedUser']))
+session_start();
+
+if ($_SESSION['loggedUser'] === true)
     header("Location: ../index/index.php");
 ?>
 
