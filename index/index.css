@@ -7,3 +7,12 @@
     justify-content: center;
     padding-top: 80px;
 }
+
+a {
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.list-env {
+    padding: 25px !important;
+}

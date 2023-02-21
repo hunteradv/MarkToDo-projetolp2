@@ -29,9 +29,7 @@
             <div class="list-group">
                 <?php
                 foreach ($data as $line) {
-                ?>
-                    <button type="button" class="list-group-item list-group-item-action"><?php echo "$line[name]" ?></button>
-                <?php
+                    echo "<a href='../team/teamList.php?id=$line[environmentId]'><button type='button' class='list-group-item list-group-item-action list-env'> $line[name] </button></a>";
                 }
                 ?>
             </div>

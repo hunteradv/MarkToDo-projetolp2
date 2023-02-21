@@ -16,7 +16,9 @@
 
 <body>
     <header>
-        <h1>Mark 2 do</h1>
+        <a href="../index/index.php">
+            <h1>Mark 2 do</h1>
+        </a>
 
         <img src="logout-icon.png" alt="logout-icon" onclick="doLogout()">
 
